@@ -34,21 +34,43 @@ function displayWindspeed(response) {
   currentWindspeed.innerHTML = `Windspeed: ${windspeed} km/h`;
 }
 
+function displayWeatherStatus(response) {
+  let weatherStatus = response.data.weather[0];
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${weatherStatus.icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", weatherStatus.description);
+
+  let currentWeatherStatus = document.querySelector("#current-weather-status");
+  currentWeatherStatus.innerHTML = weatherStatus.description;
+}
+
 function searchCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form");
   let city = searchInput.value;
-  let apiKey = "59291e55603857fc768aa2b6fad03a18";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-  axios.get(url).then((response) => {
-    let searchedCity = document.querySelector("#searched-city");
-    searchedCity.innerHTML = city;
-    displayWeather(response);
-    displayHumidity(response);
-    displayWindspeed(response);
-    searchInput.value = "";
-  });
+  if (city) {
+    let apiKey = "59291e55603857fc768aa2b6fad03a18";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    axios
+      .get(url)
+      .then((response) => {
+        let searchedCity = document.querySelector("#searched-city");
+        searchedCity.innerHTML = city;
+        displayWeather(response);
+        displayHumidity(response);
+        displayWindspeed(response);
+        displayWeatherStatus(response);
+        searchInput.value = "";
+      })
+      .catch(() => {
+        alert("We could not find that city. Please try again!");
+      });
+  }
 }
 
 let form = document.querySelector("form");

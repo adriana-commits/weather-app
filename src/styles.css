@@ -2,10 +2,6 @@ input {
   line-height: normal;
 }
 
-.sky {
-  font-size: 60px;
-}
-
 .wrapper {
   max-width: 600px;
   margin: 0 auto;
@@ -16,7 +12,9 @@ input {
   margin: 10px auto;
   padding: 10px 30px;
   max-width: 600px;
-  color: #198754;
+  color: #2d8484;
+  box-shadow: 3px 3px 10px #2a7143;
+  border-radius: 5px;
 }
 
 .spanh2 {
@@ -28,10 +26,23 @@ input {
   padding: 5px;
 }
 
+.btn {
+  color: #2d8484;
+  box-shadow: 1px 1px 3px #2a7143;
+}
+
+.btn:hover {
+  background-color: #2d8484;
+  color: white;
+  box-shadow: 1px 1px 3px #2a7143;
+}
+
 #current-temperature,
-#date {
+#date,
+#current-weather-status {
   font-size: 20px;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 #searched-city {
