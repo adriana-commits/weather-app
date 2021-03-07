@@ -1,12 +1,21 @@
+input {
+  line-height: normal;
+}
+
 .sky {
   font-size: 60px;
 }
 
+.wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .box {
   border: 2px solid green;
-  margin: 50px auto;
+  margin: 10px auto;
   padding: 10px 30px;
-  max-width: 500px;
+  max-width: 600px;
   color: #198754;
 }
 
@@ -19,8 +28,10 @@
   padding: 5px;
 }
 
+#current-temperature,
 #date {
   font-size: 20px;
+  font-weight: bold;
 }
 
 #searched-city {

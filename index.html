@@ -16,33 +16,47 @@
   </head>
   <body>
     <div class="container">
+    <div class="wrapper">
         <div class="box">
-      <form>
-        <input type="text" placeholder="City name" id="search-form" />
-        <button
-          type="button"
-          class="btn btn-outline-success search"
+          <div class="row">
+            <div class="col-12">
+               <form>
+                 <div class="row mb-4">
+                    <div class="col-8">
+                       <input class="w-100 p-1" type="text" placeholder="City name" id="search-form" value="Munich" />
+                    </div>
+                    <div class="col-4">
+                       <button
+          class="btn btn-outline-success  w-100 p-1"
           type="submit"
+          id="submit-btn"
         >
           Search
         </button>
-      </form>
+                    </div>
+                 </div>
+               </form>
+            </div>
+          </div>
+    
+          <div class="row mb-4">
+            <div class="col-6">
+          
+              <h1 id="searched-city"></h1>
 
-      <div class="row justify-content-around mb-4">
-        <div class="col-4">
-          <h1 id="searched-city">
-            Munich <br />
-              </h1>
-              <div id="date">
-
-              </div>
+              <div id="date"></div>
             
-            <h2 id="current-temperature">  12° C <br />
-            cloudy </h2>
+              <div id="current-temperature"></div>
+
+              <div id="current-humidity"></div>
+
+              <div id="current-windspeed"></div>
         
         </div>
 
-        <div class="col-4 sky">☁</div>
+        <div class="col-6 sky">
+          <div class="icon"><img id="icon" /></div> 
+        </div>
 </div>
 
         <div class="row justify-content-evenly">
@@ -88,9 +102,12 @@
       </div>
       
       </div>
-      <p>
-        <a href="https://github.com/adriana-commits/weather-app" target="_blank">GitHub source code</a></p>
+     
     </div>
+     <p>
+        <a href="https://github.com/adriana-commits/weather-app" target="_blank">GitHub source code</a></p>
+        </div>
+
     <script src="src/index.js"></script>
   </body>
 </html>
